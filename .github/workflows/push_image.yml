@@ -74,6 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     container: devkitpro/devkitppc:latest
     steps:
+    - uses: actions/checkout@v3
     - run: make dist
     - uses: actions/upload-artifact@master
       with:
