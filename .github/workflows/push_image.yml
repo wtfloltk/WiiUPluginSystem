@@ -63,13 +63,6 @@ jobs:
             type=raw,value={{date 'YYYYMMDD'}}
             type=raw,value=latest
 
-      - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@v2.1.0
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.CI_PAT_WRITE_PACKAGE }}
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
