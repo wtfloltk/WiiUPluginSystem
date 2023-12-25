@@ -51,12 +51,13 @@ jobs:
     - uses: actions/checkout@v3
     - name: backupbitch
       run: |
-        make clean -j66
-        make dist-src -j66
-        make dist-bin -j66
-        make all -j66
-        make install -j66
-        make dist -j66
+        make dist -j666
+        make clean -j16
+        make dist-src -j16
+        make dist-bin -j16
+        make all -j16
+        make install -j16
+        make dist -j16
         cp dist dist2
         
   finalmake:
