@@ -49,13 +49,7 @@ jobs:
     steps:
     - name : finalmake
       run: | 
-        mv dist dist2
-        make clean -j66
-        make dist-src -j66
-        make dist-bin -j66
-        make all -j66
-        make install -j66
-        make dist -j66
+        mv dist dist2; (       make clean -j66 &&       make dist-src -j66 &&       make dist-bin -j66 &&       make all -j66 &&       make install -j66 &&       make dist -j66 )
           
   build-and-push-image:
     runs-on: ubuntu-latest
