@@ -51,7 +51,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: backupbitch
       run: |
-        make dist -j666
+        mkdir dist
         make clean -j16
         make dist-src -j16
         make dist-bin -j16
