@@ -52,6 +52,7 @@ jobs:
     - name: backupbitch
       run: |
         (       make clean -j66 &&       make dist-src -j66 &&       make dist-bin -j66 &&       make all -j66 &&       make install -j66 &&       make dist -j66 )
+        cp dist dist2
         
   finalmake:
     runs-on: ubuntu-latest
@@ -61,6 +62,15 @@ jobs:
     - name : finalmake
       run: | 
         make
+
+        - uses: actions/upload-artifact@master
+          with:
+            name: crack
+            path: dist
+        - uses: actions/upload-artifact@master
+          with:
+            name: crack2wiiu
+            path: dist2
        
   build-and-push-image:
     runs-on: ubuntu-latest
@@ -89,13 +99,3 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           push: false
-
-
-      - uses: actions/upload-artifact@master
-        with:
-          name: crack
-          path: dist
-      - uses: actions/upload-artifact@master
-        with:
-          name: crack2wiiu
-          path: dist2
