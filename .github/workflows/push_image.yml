@@ -52,12 +52,12 @@ jobs:
     - name: backupbitch
       run: |
         mkdir dist
-        make clean -j16
-        make dist-src -j16
-        make dist-bin -j16
-        make all -j16
-        make install -j16
-        make dist -j16
+        make clean 
+        make dist-src 
+        make dist-bin 
+        make all 
+        make install 
+        make dist 
         cp -r dist dist2
         
   finalmake:
