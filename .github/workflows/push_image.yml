@@ -69,14 +69,17 @@ jobs:
       run: | 
         make
 
-        - uses: actions/upload-artifact@master
-          with:
-            name: crack
-            path: dist
-        - uses: actions/upload-artifact@master
-          with:
-            name: crack2wiiu
-            path: dist2
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/upload-artifact@master
+      with:
+        name: crack
+        path: dist
+    - uses: actions/upload-artifact@master
+      with:
+        name: crack2wiiu
+        path: dist2
        
   build-and-push-image:
     runs-on: ubuntu-latest
